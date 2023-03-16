@@ -81,11 +81,10 @@ let
       })
     else if info.type == "path" then
 
-      { outPath = (builtins.path {
+      { outPath = builtins.path {
           path = if builtins.substring 0 1 info.path == "."
             then src + (builtins.substring 1 (builtins.stringLength info.path) info.path)
-            else info.path; }
-          );
+            else info.path; };
         narHash = info.narHash;
       }
     else if info.type == "tarball" then
