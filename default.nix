@@ -85,7 +85,6 @@ let
           path = if builtins.substring 0 1 info.path != "/"
             then src + ("/" + info.path)
             else info.path; }
-           // (if info ? narHash then { sha256 = info.narHash; } else {})
           );
         narHash = info.narHash;
       }
